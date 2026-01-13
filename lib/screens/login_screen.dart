@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)], // Blue → Purple
+            colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -43,20 +43,23 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Logo
+                  // 🔥 LearnHub Logo
                   Container(
-                    width: 80,
-                    height: 80,
+                    width: 100,
+                    height: 100,
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
-                      ),
-                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(24),
                     ),
-                    child: const Icon(Icons.school, size: 42, color: Colors.white),
+                    child: Image.asset(
+                      "assets/images/logo.png",
+                      fit: BoxFit.contain,
+                    ),
                   ),
 
                   const SizedBox(height: 16),
+
                   const Text(
                     "LearnHub",
                     style: TextStyle(
@@ -83,6 +86,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 16),
 
                   // Password
@@ -100,7 +104,6 @@ class LoginScreen extends StatelessWidget {
 
                   const SizedBox(height: 12),
 
-                  // Forgot password
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -111,7 +114,6 @@ class LoginScreen extends StatelessWidget {
 
                   const SizedBox(height: 8),
 
-                  // Login button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -123,16 +125,12 @@ class LoginScreen extends StatelessWidget {
                         ),
                         backgroundColor: const Color(0xFF4F46E5),
                       ),
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(fontSize: 16),
-                      ),
+                      child: const Text("Login", style: TextStyle(fontSize: 16)),
                     ),
                   ),
 
                   const SizedBox(height: 18),
 
-                  // Admin toggle
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

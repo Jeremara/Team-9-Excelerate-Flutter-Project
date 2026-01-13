@@ -16,25 +16,52 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Profile")),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
+      backgroundColor: const Color(0xFFF9FAFB),
+      body: Column(
         children: [
-          ListTile(
-            leading: const CircleAvatar(child: Text("JD")),
-            title: const Text("John Doe"),
-            subtitle: const Text("john.doe@example.com"),
-            trailing: isAdmin ? const Chip(label: Text("Admin")) : null,
+          Container(
+            padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
+            decoration: const BoxDecoration(
+                gradient:
+                    LinearGradient(colors: [Colors.blue, Colors.purple])),
+            child: const Text("My Profile",
+                style: TextStyle(color: Colors.white, fontSize: 18)),
           ),
-          const Divider(),
-          ListTile(title: const Text("My Enrollments"), leading: const Icon(Icons.book)),
-          ListTile(title: const Text("Settings"), leading: const Icon(Icons.settings)),
-          ListTile(title: const Text("Help"), leading: const Icon(Icons.help)),
-          ListTile(
-            title: const Text("Logout"),
-            leading: const Icon(Icons.logout, color: Colors.red),
-            onTap: onLogout,
-          ),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.all(20),
+              children: [
+                CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.blue,
+                    child: const Text("JD",
+                        style:
+                            TextStyle(fontSize: 28, color: Colors.white))),
+                const SizedBox(height: 12),
+                const Center(
+                    child: Text("John Doe",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold))),
+                const Center(child: Text("john.doe@example.com")),
+                const SizedBox(height: 20),
+                ListTile(
+                    leading: const Icon(Icons.book),
+                    title: const Text("My Enrollments")),
+                ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: const Text("Settings")),
+                ListTile(
+                    leading: const Icon(Icons.help),
+                    title: const Text("Help")),
+                ListTile(
+                    leading:
+                        const Icon(Icons.logout, color: Colors.red),
+                    title: const Text("Logout",
+                        style: TextStyle(color: Colors.red)),
+                    onTap: onLogout),
+              ],
+            ),
+          )
         ],
       ),
       bottomNavigationBar: BottomNav(active: "profile", onNavigate: onNavigate),
